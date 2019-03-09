@@ -44,7 +44,7 @@ public class MyJobService extends JobService {
         Log.e(TAG, "onStartJob:"+"    currentThread："+Thread.currentThread().getName());
         Toast.makeText(this, "onStartJob", Toast.LENGTH_SHORT).show();
         jobFinished(params,true);//返回true去再次启动任务，前提条件是onStartJob返回true，否则设置无效。我将它理解为手动调用停止任务
-        return false;
+        return true;
     }
 
     /**
@@ -59,7 +59,7 @@ public class MyJobService extends JobService {
     public boolean onStopJob(JobParameters params) {
         Toast.makeText(this, "onStopJob", Toast.LENGTH_LONG).show();
         Log.i(TAG, "onStopJob");
-        return false;
+        return true;
     }
 
     @Override
